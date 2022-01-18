@@ -43,12 +43,12 @@ function Card({like, data}) {
     }
     
     return (
-      <div className="test">
+      
         <div className="container">
         <div className="container__featured-card">
             <div className="container-card__glass-background"></div>
             <div className="container-card__content">
-                <p className="container-card__hairline">What's your opinion on</p>
+                <p className="container-card__hairline"></p>
                 <h2 className="container-card__title">{dat.name}</h2>
                 <p className="container-card__desc">
                     {dat.description}
@@ -66,12 +66,12 @@ function Card({like, data}) {
                     </button>
                     <Button buttonSize='btn--wide' buttonColor='primary' onChildClick={updateData}>Vote Now</Button>
                 </div>
-                <p>estado: {dat.isLike}</p>
+                <div className="container-Porcentage">
                 <div>Likes: {dat.votes.positive} ({getPercent(dat.votes.positive, (dat.votes.positive + dat.votes.negative))} %)</div>
                 <div>dislikes: {dat.votes.negative} ({getPercent(dat.votes.negative, (dat.votes.positive + dat.votes.negative))} %)</div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     
     

@@ -31,12 +31,8 @@ useEffect(() => {
         <>
           <Header {...Sources} />
           <div className='momContainer'>
-          {/* <Card {...Like} />
-          <Card {...Like} />
-          <Card {...Like} />
-          <Card {...Like} />
-          <Card {...Like} />
-          <Card {...Like} /> */}
+              <h2 className='momTittle'>Previus Rulings</h2>
+              <button className='momList'>hola</button>
           {data.map(dat => {
 
               const props = {

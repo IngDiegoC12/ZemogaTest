@@ -7,6 +7,18 @@
     overflow-x: scroll;
     width: 100%;
 }
+
+.momList 
+{
+    visibility: hidden;
+}
+
+.momTitle 
+{
+    position:absolute;
+    display: flex;
+}
+
 @media screen and (min-width: 700px) 
 {
     .momContainer
@@ -17,4 +29,13 @@
         
        
     }
+
+    .momList 
+{
+    visibility: visible;
+    margin-left: 95%;
+}
+
+    
+   
 }

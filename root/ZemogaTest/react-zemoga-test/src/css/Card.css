@@ -10,13 +10,7 @@
     --color-lighter-background: rgba(255, 255, 255, .8);
     --color-white: rgba(255, 255, 255, 1);
 }
-/*.test
-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-}*/
+
 
 button {
     font-family: 'Lato', sans-serif;
@@ -52,9 +46,7 @@ button {
 
 .container__featured-card
 {
-    /*display: flex;
-    align-items:center;
-    flex-wrap: nowrap;*/
+
     position: relative;
     overflow: hidden;
     width: 500px;
@@ -82,7 +74,7 @@ button {
 {
     position: relative;
     padding: 1rem;
-    color: var(--color-black);
+    color: var(--color-white);
 }
 
 .container-card__hairline 
@@ -98,6 +90,7 @@ button {
     font-size: 3rem;
     font-weight: 400;
     line-height: 1;
+    color: var(--color-white);
 }
 
 .container-card__desc 
@@ -124,6 +117,7 @@ button {
     justify-content: space-between;
     margin: 0 -1rem -1rem;
 }
+
 
 .container-card__buttons > .icon-button 
 {
@@ -176,6 +170,11 @@ main h2 {
     margin-right: 10px;
     transform: scale(1);
     
+}
+
+.container-Porcentage
+{
+    margin-top: 50px;
 }
     .container-card__glass-background {
         background:
