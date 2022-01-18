@@ -13,7 +13,7 @@ const COLOR = ['primary', 'blue', 'red', 'green'];
 export const Button = ({
     children,
     type,
-    onClick,
+    onChildClick,
     buttonStyle,
     buttonSize,
     buttonColor,
@@ -24,11 +24,11 @@ export const Button = ({
 
  const checkButtonColor = COLOR.includes(buttonColor) ? buttonColor : null;
 
-const [count, setCount] = useState(0);
+// const [count, setCount] = useState(0);
 
  return (
    
-   <button className={`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`} onClick={() => setCount(count + 1)} type={type}>{children}</button>
+   <button className={`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`} onClick={() => onChildClick()} type={type}>{children}</button>
    
  )
  

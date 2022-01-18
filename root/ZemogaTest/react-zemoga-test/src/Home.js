@@ -38,8 +38,13 @@ useEffect(() => {
           <Card {...Like} />
           <Card {...Like} /> */}
           {data.map(dat => {
+
+              const props = {
+                  like: Like,
+                  data: dat
+              }
                 return (
-                  <Card {...Like}/>
+                  <Card key={dat.id} {...props}/>
                 );
         })}
           </div>

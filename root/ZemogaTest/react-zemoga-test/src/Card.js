@@ -1,9 +1,47 @@
 import React from 'react'
 import { Button } from './Button'
 import "./css/Card.css"
+import { useState } from "react";
 
-function Card({imgThumbsDown,imgThumbsUp, data}) 
-{
+function Card({like, data}) {
+
+    const [dat, setData] = useState(data);
+
+    const setIsLikeStatus = (like) => {
+        const newData = dat;
+        newData.isLike = like;
+        console.log(newData);
+        return setData({...dat, isLike: newData.isLike});
+    };
+
+    const updateData = async () => {
+        if (dat.isLike) {
+            dat.votes.positive ++;
+        } else {
+            dat.votes.negative ++;
+        }
+
+        // Update firebase realtime database
+        try {
+            await fetch(`https://test-zemoga-default-rtdb.firebaseio.com/data/${dat.id}/votes.json`, {
+                method: 'PATCH',
+                // headers: { 'Content-Type':'application/x-www-form-urlencoded' },
+                body: JSON.stringify(dat.votes)
+            });
+            setData(dat);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const getPercent = (likes, totalLikes) => {
+        if(totalLikes === 0) {
+            return 0;
+        }
+
+        return Math.round(likes / totalLikes * 100);
+    }
+    
     return (
       <div className="test">
         <div className="container">
@@ -11,23 +49,26 @@ function Card({imgThumbsDown,imgThumbsUp, data})
             <div className="container-card__glass-background"></div>
             <div className="container-card__content">
                 <p className="container-card__hairline">What's your opinion on</p>
-                <h2 className="container-card__title">Pope Francis?</h2>
+                <h2 className="container-card__title">{dat.name}</h2>
                 <p className="container-card__desc">
-                    He’s talking tough on clergy sexual abuse, or is he just another pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up)
+                    {dat.description}
                 </p>
                 
                 <p className="container-card__cta">
-                    What’s Your Veredict?
+                    {dat.category}
                 </p>
                 <div className="container-card__buttons">
-                    <button className="icon-button" aria-label="thumbs up">
-                        <img src={imgThumbsUp} alt="thumbs up" />
+                    <button className="icon-button" aria-label="thumbs up" onClick={() => setIsLikeStatus(true)}>
+                        <img src={like.imgThumbsUp} alt="thumbs up" />
                     </button>
-                    <button className="icon-button" aria-label="thumbs down" >
-                        <img src={imgThumbsDown} alt="thumbs down"  />
+                    <button className="icon-button" aria-label="thumbs down" onClick={() => setIsLikeStatus(false)}>
+                       <img src={like.imgThumbsDown} alt="thumbs down"  />
                     </button>
-                    <Button buttonSize='btn--wide' buttonColor='primary'>Vote Now</Button>
+                    <Button buttonSize='btn--wide' buttonColor='primary' onChildClick={updateData}>Vote Now</Button>
                 </div>
+                <p>estado: {dat.isLike}</p>
+                <div>Likes: {dat.votes.positive} ({getPercent(dat.votes.positive, (dat.votes.positive + dat.votes.negative))} %)</div>
+                <div>dislikes: {dat.votes.negative} ({getPercent(dat.votes.negative, (dat.votes.positive + dat.votes.negative))} %)</div>
             </div>
         </div>
     </div>
