@@ -1,3 +1,19 @@
+Run poyect
+
+- Once the repository be on  pull on your  laptop please folow the instruction below
+
+ RUN on the on the proyect terminar
+  npm install
+  
+ This goin to install al the librarys the repository needs to run
+ 
+-The data saving was implemented on a A firebase realtime database
+
+the link below
+
+https://test-zemoga-default-rtdb.firebaseio.com/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
