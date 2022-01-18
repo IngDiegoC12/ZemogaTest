@@ -1,4 +1,4 @@
-Run poyect
+Run proyect
 
 - Once the repository be on  pull on your  laptop please folow the instruction below
 
