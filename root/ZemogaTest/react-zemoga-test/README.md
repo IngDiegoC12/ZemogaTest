@@ -2,8 +2,7 @@ Run proyect
 
 - Once the repository be on  pull on your  laptop please folow the instruction below
 
- RUN on the on the proyect terminar
-  npm install
+ RUN on the on the proyect terminar  npm install
   
  This goin to install al the librarys the repository needs to run
  
